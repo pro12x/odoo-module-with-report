@@ -1,0 +1,12 @@
+<odoo>
+    <data>
+        <!-- Groupes d'utilisateurs -->
+        <record id="group_notary_manager" model="res.groups">
+            <field name="name">Notary Manager</field>
+        </record>
+
+        <record id="group_notary_user" model="res.groups">
+            <field name="name">Notary User</field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_current_account,access_current_account,model_current_account,,1,1,1,1
+access_notary_office,access_notary_office,model_notary_office,,1,1,1,1
+access_notary,access_notary,model_notary,,1,1,1,1

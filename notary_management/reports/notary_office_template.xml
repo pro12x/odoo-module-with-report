@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <template id="report_notary_office_document">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <div class="page">
+                        <h2>Etude Notariale : <span t-esc="o.name"/></h2>
+                        <p><strong>NINEA:</strong> <span t-esc="o.ninea"/></p>
+
+                        <p><strong>Notaires associes:</strong>
+                            <ul>
+                                <t t-foreach="o.notary_ids" t-as="notary">
+                                    <li t-esc="notary.name"/> (<span t-esc="notary.title"/>)
+                                </t>
+                            </ul>
+                        </p>
+                        <p><strong>Adresse:</strong> <span t-esc="o.address"/></p>
+                        <p><strong>Zone:</strong> <span t-esc="o.zone"/></p>
+                        <p><strong>Telephone:</strong> <span t-esc="o.phone"/></p>
+                        <p><strong>Courriel:</strong> <span t-esc="o.email"/></p>
+
+                        <p><strong>Current Account:</strong>
+                            <ul>
+                                <t t-foreach="o.account_ids" t-as="account">
+                                    <li t-esc="acccount.number"/> (<span t-esc="acccount.balance"/> cree le: <span t-esc="account.creation_date"/>)
+                                </t>
+                            </ul>
+                        </p>
+                    </div>
+                </t>
+            </t>
+        </template>
+
+        <report 
+            id="action_report_notary_office"
+            string="Imprimer Étude Notariale"
+            model="notary.office"
+            report_type="qweb-pdf"
+            file="odoo_notary_management.report_notary_office_document"
+            name="odoo_notary_management.report_notary_office_document"
+        />
+    </data>
+</odoo>

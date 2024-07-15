@@ -1,0 +1,50 @@
+<odoo>
+    <data>
+        <!-- Assurez-vous que le menu parent existe et est correctement défini ailleurs -->
+        <!-- Définition de l'action pour les Comptes Courants -->
+        <record id="action_current_account" model="ir.actions.act_window">
+            <field name="name">Current Accounts</field>
+            <field name="res_model">current.account</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Définition du menu pour les Comptes Courants -->
+        <menuitem id="menu_current_account" 
+                  name="Current Accounts" 
+                  parent="menu_notary_management_root" 
+                  action="action_current_account" 
+                  sequence="20"/>
+
+        <!-- Définition de la vue Formulaire pour les Comptes Courants -->
+        <record id="view_current_account_form" model="ir.ui.view">
+            <field name="name">current.account.form</field>
+            <field name="model">current.account</field>
+            <field name="arch" type="xml">
+                <form string="Current Account">
+                    <sheet>
+                        <group>
+                            <field name="number" required="1"/>
+                            <field name="office_id" required="1"/>
+                            <field name="balance"/>
+                            <field name="creation_date"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Définition de la vue Arbre pour les Comptes Courants -->
+        <record id="view_current_account_tree" model="ir.ui.view">
+            <field name="name">current.account.tree</field>
+            <field name="model">current.account</field>
+            <field name="arch" type="xml">
+                <tree string="Current Accounts">
+                    <field name="number"/>
+                    <field name="office_id"/>
+                    <field name="balance"/>
+                    <field name="creation_date"/>
+                </tree>
+            </field>
+        </record>
+    </data>
+</odoo>
